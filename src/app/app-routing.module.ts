@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'formplay/reactive',
     pathMatch: 'full'
   }
 ];

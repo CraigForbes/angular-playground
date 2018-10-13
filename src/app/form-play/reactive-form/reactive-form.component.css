@@ -1,0 +1,12 @@
+.parent {
+    display: flex;
+    align-items: center;
+}
+
+.parent > div {
+    flex: 1;
+}
+
+.column{
+    background-color: bisque;
+}

@@ -1,3 +1,136 @@
-<p>
-  reactive-form works!
-</p>
+<h1>Reactive Forms</h1>
+
+
+<div class="parent">
+  <div class="column">
+
+    <label>
+      Name:
+      <input type="text" [formControl]="name">
+    </label>
+
+    <p>
+      <button (click)="updateName()">Update Name</button>
+    </p>
+
+    <p>
+      Value: {{ name.value }}
+    </p>
+
+    <pre>{{ name | json }}</pre>
+
+  </div>
+  <div class="column">
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+      <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+      </label>
+
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+      </label>
+
+      <div formGroupName="address">
+        <h3>Address</h3>
+
+        <label>
+          Street:
+          <input type="text" formControlName="street">
+        </label>
+
+        <label>
+          City:
+          <input type="text" formControlName="city">
+        </label>
+
+        <label>
+          State:
+          <input type="text" formControlName="state">
+        </label>
+
+        <label>
+          Zip Code:
+          <input type="text" formControlName="zip">
+        </label>
+      </div>
+
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+
+    </form>
+
+    <p>
+      <button (click)="updateProfile()">Update Profile</button>
+    </p>
+
+    <pre>{{ profileForm.value | json }}</pre>
+
+  </div>
+
+  <div class="column">
+
+    <h2>Formbuilder</h2>
+
+    <form [formGroup]="profileFormfb" (ngSubmit)="onSubmitfb()">
+
+      <label>
+        First Name:
+        <input type="text" formControlName="firstName">
+      </label>
+
+      <label>
+        Last Name:
+        <input type="text" formControlName="lastName">
+      </label>
+
+      <label>
+        Email:
+        <input type="text" formControlName="email">
+      </label>
+
+      <div formGroupName="address">
+        <h3>Address</h3>
+
+        <label>
+          Street:
+          <input type="text" formControlName="street">
+        </label>
+
+        <label>
+          City:
+          <input type="text" formControlName="city">
+        </label>
+
+        <label>
+          State:
+          <input type="text" formControlName="state">
+        </label>
+
+        <label>
+          Zip Code:
+          <input type="text" formControlName="zip">
+        </label>
+      </div>
+
+      <button type="submit" [disabled]="!profileFormfb.valid">Submit</button> Valid? | {{ profileFormfb.valid }}
+
+    </form>
+
+    <p>
+      <button (click)="updateProfilefb()">Update Profile</button>
+    </p>
+
+    <pre>{{ profileFormfb.valid | json }}</pre>
+
+    <pre>{{ profileFormfb.value | json }}</pre>
+
+    <p>
+      Form Status: {{ profileFormfb.status }}
+    </p>
+
+  </div>
+
+</div>
