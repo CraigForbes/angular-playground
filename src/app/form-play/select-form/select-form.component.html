@@ -1,0 +1,77 @@
+<div class="parent">
+
+  <div class="column">
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+
+      <mat-form-field class="">
+        <input matInput placeholder="First Name" value="" formControlName="firstName">
+      </mat-form-field>
+
+      <mat-form-field class="">
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-hint>sheeeeeet!</mat-hint>
+        <mat-error *ngIf="profileForm.get('email').hasError('email') && !profileForm.get('email').hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-select placeholder="Country" formControlName="country">
+          <mat-option>-- None --</mat-option>
+          <mat-optgroup *ngFor="let group of countries$ | async" [label]="group.group">
+            <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+              {{pokemon.viewValue}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field> -->
+
+      <mat-form-field>
+        <mat-select placeholder="Country" formControlName="country">
+          <mat-option>-- None --</mat-option>
+
+          <mat-option *ngFor="let country of countries$ | async" [value]="country.value">
+            {{ country.text }} - {{ country.group }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Hero" formControlName="hero">
+          <mat-option>-- None --</mat-option>
+
+          <mat-option *ngFor="let hero of heroes$ | async" [value]="hero.value">
+            {{ hero.text }} - {{ hero.group }}
+          </mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+      <app-select-control [formGroup]="profileForm" [items]="heroes$ | async" [placeholder]="'Heroes!'"></app-select-control>
+
+
+      <!-- <app-select-control [items]="countries$ | async" [placeholder]="'Countries!'"></app-select-control> -->
+
+      <button type="submit" [disabled]="!profileForm.valid">Submit</button> Valid? | {{ profileForm.valid }}
+
+    </form>
+
+    
+
+    <pre>{{ profileForm.valid | json }}</pre>
+
+    <pre>{{ profileForm.value | json }}</pre>
+
+    <p>
+      Form Status: {{ profileForm.status }}
+    </p>
+
+  </div>
+
+</div>

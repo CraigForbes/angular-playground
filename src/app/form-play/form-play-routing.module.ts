@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { SelectFormComponent } from './select-form/select-form.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'templatedriven',
     component: TemplateDrivenFormComponent
+  },
+  {
+    path: 'selectform',
+    component: SelectFormComponent
   },
 ];
 

@@ -12,6 +12,7 @@ export class ReactiveFormComponent implements OnInit {
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     address: new FormGroup({
+      country: new FormControl(''),
       street: new FormControl(''),
       city: new FormControl(''),
       state: new FormControl(''),
@@ -35,7 +36,7 @@ export class ReactiveFormComponent implements OnInit {
   });
 
   addAlias() {
-    this.aliases.push(this.fb.control(''));
+    //this.profileFormfb.aliases.push(this.fb.control(''));
   }
 
   // this.loginForm = this._formBuilder.group({

@@ -1,0 +1,12 @@
+<div [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-select [placeholder]="placeholder" formControlName="hero">
+      <mat-option>-- None --</mat-option>
+
+      <mat-option *ngFor="let item of items" [value]="item.value">
+        {{ item.text }} - {{ item.group }}
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</div>
